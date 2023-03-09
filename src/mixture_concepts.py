@@ -19,17 +19,9 @@ def twod_gaussian_pdf(x: np.ndarray, mu: np.ndarray, sigma: np.ndarray) -> np.nd
     Returns:
         np.ndarray: The two dimensional gaussian distribution.
     """
-    dim = len(mu)
-    x = np.expand_dims(x, -2)
-    mu = np.expand_dims(mu, list(range(len(x.shape) - 1)))
-    sigma = np.expand_dims(sigma, list(range(len(x.shape) - 2)))
-    return (
-        1.0
-        / (np.sqrt(np.linalg.norm(sigma) * (2 * np.pi) ** dim) + 1e-12)
-        * np.exp(
-            -1.0 / 2.0 * ((x - mu) @ np.linalg.inv(sigma) @ (x - mu).swapaxes(-1, -2))
-        )
-    )
+    # TODO: Implement me.
+    return np.zeros_like(x)
+
 
 
 def get_classification(points: np.ndarray, params_list: List) -> np.ndarray:
@@ -44,17 +36,9 @@ def get_classification(points: np.ndarray, params_list: List) -> np.ndarray:
         np.ndarray: The probability with which a point was drawn for every
             gaussian in the mix.
     """
-    rhos, mus, sigmas = zip(*params_list)
-    class_total = len(params_list)
-    probs = list(
-        rhos[c_no] * twod_gaussian_pdf(points, mus[c_no], sigmas[c_no])
-        for c_no in range(class_total)
-    )
-    res = list(
-        probs[c_no] / (np.sum(np.stack(probs, 0), 0) + 1e-12)
-        for c_no in range(class_total)
-    )
-    return np.stack(res)
+    # TODO: OPTIONALLY, Implement me.
+    return np.zeros_like(x)
+
 
 
 def fit_gmm(points: np.ndarray, init_params_list: List) -> List:
@@ -75,24 +59,7 @@ def fit_gmm(points: np.ndarray, init_params_list: List) -> List:
 
     # update params
     new_params_list = []
-    for current_class in range(len(init_params_list)):
-        in_class = sum(labels == current_class) + 1e-5
-        class_probs = np.expand_dims(zig[current_class], 1)
-        new_rho = in_class / point_count
-        new_mu = 1.0 / in_class * np.sum(class_probs * points, 0)
-        cast_points = np.expand_dims(points, 1)
-        cast_mu = np.expand_dims(new_mu, axis=(0, 1))
-        new_sigma = (
-            1.0
-            / in_class
-            * np.sum(
-                np.expand_dims(class_probs, -1)
-                * (cast_points - cast_mu).swapaxes(-2, -1)
-                @ (cast_points - cast_mu),
-                0,
-            )
-        )
-        new_params_list.append((new_rho, new_mu, new_sigma))
+    # TODO: OPTIONALLY, Implement me.
 
     return [new_params_list, points, labels]
 

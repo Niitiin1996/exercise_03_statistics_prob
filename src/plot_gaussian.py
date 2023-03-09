@@ -18,7 +18,8 @@ def gaussian_pdf(x: np.ndarray, mu=0.0, sigma=1.0) -> np.ndarray:
     Returns:
         np.ndarray: The gaussian pdf with shape [points].
     """
-    return 1.0 / (sigma * np.sqrt(2 * np.pi)) * np.exp(-1 / 2 * ((x - mu) / sigma) ** 2)
+    # TODO: Implement me.
+    return np.zeros_like(x)
 
 
 def forward_euler(x: np.ndarray, fun: Callable, int_0: float = 0.0) -> np.ndarray:

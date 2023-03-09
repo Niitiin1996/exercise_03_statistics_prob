@@ -20,11 +20,7 @@ to compute the standard deviation. $x \in \mathbb{R}$ denotes individual sample 
 
 Return to the Rhine data-set. Load the data from `./data/pegel.tab`. Compute the water level mean and standard deviation before and after the year 2000.
 
-Solution:
-```
-  pre 2000. Mean 330.73, std 131.86
-  post 2000. Mean 298.49, std 123.15
-```
+
 
 ### Exercise 2: Autocorrelation
 Implement autocorrelation. Finish the `auto_corr` function. It should implement the engineering version without the normalization
@@ -38,10 +34,6 @@ $$ x_{\text{norm}} = \frac{x - \hat{\mu}}{\hat{\sigma}} ,$$
 
 Before running the autocorrelation computation. Compare the autocorrelation to a random signal from `np.random.randn` by plotting both results with `plt.plot`.
 
-Solution:
-
-![gauss_pdf](./figures/autocorr.png)
-
 
 ### Exercise 3: Distributions
 
@@ -54,9 +46,6 @@ $$\phi_1(x | \mu, \sigma) = \frac{1}{\sqrt{2\pi \sigma^2}} \exp({-\frac{1}{2}(\f
 
 $\pi \in \mathbb{R}$ denotes Pi, $\mu \in \mathbb{R}$ the mean and $\sigma \in \mathbb{R}$ the standard deviation for a random variable $X$. $e^x$ denotes the exponential function. $X$ having a gaussian pdf is described as gaussion or normal distribution $\mathcal{N}$. Explore the behavior of $\mathcal{N}(\mu, \sigma)$ for different values of $\mu$ and $\sigma$.
 
-Solution:
-
-![gauss_pdf](./figures/gauss_pdf.png)
 
 - Consider the `src/mixture_concpets.py` module. 
 Implement a two-dimensional gaussian pdf following,
@@ -65,10 +54,6 @@ $$ \phi_2(\mathbf{x} | \mu_g, \Sigma_g) = \frac{1}{\sqrt{(2\pi)^2 \| \Sigma_g \|
 
 $\mu_g \in \mathbb{R}^2$ denotes the two dimensional mean vector, $\Sigma_g \in \mathbb{R}^{2\times2}$ the covariance matrix, $^{-1}$ the matrix inverse, $T$ the transpose and $g \in \mathbb{N}$ the number of the distrubtion, which will be important later. 
 Plot a 2d-bell curve with $\mu_1 = [-1.5, 2]$ and $\Sigma_1 = [[1, 0], [0, 1]]$ using the `plt.imshow` function. `np.linspace` and `np.meshgrid` will help you. 
-
-Solution:
-
-![2d_bell](./figures/2d_bell.png)
 
 
 ### Exercise 4: Gaussian mixture models (optional)
@@ -115,18 +100,6 @@ multiple samples simultaneously due to https://numpy.org/doc/stable/user/basics.
 ![patients](./figures/glufasttest.png)
 
 Train a gmm to find the diabetic patients.
-
-
-Solution:
-
-Once implemented, expectation-maximization converges the artificial data set. Squares mark the mean positions and circles covariance matrix L2-norms:
-
-![em_animation_gauss](./figures/gauss_movie.gif)
-
-The video below shows convergence on the diabetes data set (https://doi.org/10.1007/BF00423145):
-
-![em_animation_diabetes](./figures/diabetes.gif)
-
 
 
 - Standard packages like sci-kit-learn implement GMMs, too. Take a minute to read https://scikit-learn.org/stable/modules/mixture.html . 
