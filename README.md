@@ -25,14 +25,14 @@ Return to the Rhine data-set. Load the data from `./data/pegel.tab`. Compute the
 ### Exercise 2: Autocorrelation
 Implement autocorrelation. Finish the `auto_corr` function. It should implement the engineering version without the normalization
 
-$$        c_{k} = \sum_{t=1}^{N-k} x_t x_{t + k} .$$
+$$        c_{k} = \sum_{t=1}^{N-k} n_t n_{t + k} .$$
 
-Once you have checked your implementation using `nox -s test`, you can use `np.correlate` for efficieny. Plot the autocorrelation for the rhine level measurements since 2000.
+With $n$ the normalized version of your signal. $t$ and $k$ are indices. Once you have checked your implementation using `nox -s test`, you can use `np.correlate` for efficieny. Plot the autocorrelation for the rhine level measurements since 2000.
 Normalize your data via
 
-$$ x_{\text{norm}} = \frac{x - \hat{\mu}}{\hat{\sigma}} ,$$
+$$ n_{t} = \frac{x_{t} - \hat{\mu}}{\hat{\sigma}} ,$$
 
-Before running the autocorrelation computation. Compare the autocorrelation to a random signal from `np.random.randn` by plotting both results with `plt.plot`.
+for all $t$ measurements until the signal length N. Before running the autocorrelation computation. Compare the autocorrelation to a random signal from `np.random.randn` by plotting both results with `plt.plot`.
 
 
 ### Exercise 3: Distributions
