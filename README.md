@@ -27,7 +27,7 @@ Implement autocorrelation. Finish the `auto_corr` function. It should implement 
 
 $$        c_{k} = \sum_{t=1}^{N-k} n_t n_{t + k} .$$
 
-With $n$ the normalized version of your signal. $t$ and $k$ are indices. Once you have checked your implementation using `nox -s test`, you can use `np.correlate` for efficieny. Plot the autocorrelation for the rhine level measurements since 2000.
+with $n$ the normalized version of your signal. $t$ and $k$ are indices. An example on what this equation does can be found in the section [Efficient computation](https://en.wikipedia.org/wiki/Autocorrelation) on Wikipedia. Hint: The test that we prepared for you expects a symmetrical numpy array. Once you have checked your implementation using `nox -s test`, you can use `np.correlate` for efficieny. Plot the autocorrelation for the rhine level measurements since 2000.
 Normalize your data via
 
 $$ n_{t} = \frac{x_{t} - \hat{\mu}}{\hat{\sigma}} ,$$
