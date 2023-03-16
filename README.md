@@ -23,11 +23,15 @@ Return to the Rhine data-set. Load the data from `./data/pegel.tab`. Compute the
 
 
 ### Exercise 2: Autocorrelation
-Implement autocorrelation. Finish the `auto_corr` function. It should implement the engineering version without the normalization
+We now want to use autocorrelation to analyse the discrete time signal of the rhine level measurements. Implement the `auto_corr` function in `src/sample_mean_corr_rhein.py`. It should implement the engineering version without the normalization and return the autocorrelation
 
-$$        c_{k} = \sum_{t=1}^{N-k} n_t n_{t + k} .$$
+$$ R_{xx} = (c_{-N+1},\ldots,c_{1}, c_0, c_{1}, \ldots, c_{N-1}) $$
 
-with $n$ the normalized version of your signal. $t$ and $k$ are indices. An example on what this equation does can be found in the section [Efficient computation](https://en.wikipedia.org/wiki/Autocorrelation) on Wikipedia. Hint: The test that we prepared for you expects a symmetrical numpy array. Once you have checked your implementation using `nox -s test`, you can use `np.correlate` for efficieny. Plot the autocorrelation for the rhine level measurements since 2000.
+with
+
+$$        c_{k} = \sum_{t=1}^{N-|k|} n_t n_{t + |k|}$$
+
+with $n$ the normalized version of your signal of length $N$. The time shift $k$ moves from $-(N-1)$ to $N-1$. Therefore, the resulting array has a length of $2N-1$. For example the autocorrelation of an input signal $x=(2,3,-1)$ is $R_{xx}=(c_{-2}, c_{-1}, c_0, c_1, c_2)=(-2, 3, 14, 3, -2)$ and is symmetrical. Once you have checked your implementation using `nox -s test`, you can use `np.correlate` for efficieny. Plot the autocorrelation for the rhine level measurements since 2000.
 Normalize your data via
 
 $$ n_{t} = \frac{x_{t} - \hat{\mu}}{\hat{\sigma}} ,$$
