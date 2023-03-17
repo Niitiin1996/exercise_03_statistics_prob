@@ -21,7 +21,14 @@ def my_std(data_sample) -> float:
 
 
 def auto_corr(x: np.ndarray) -> np.ndarray:
-    """Impement a function to compute the autocorrelation of x."""
+    """Impement a function to compute the autocorrelation of x.
+    
+    Args:
+        x (np.ndarray): Normalized input signal array of shape (signal_length,).
+
+    Returns:
+        np.ndarray: Autocorrelation of input signal of shape (signal_length*2 - 1,).
+    """
     # TODO: Implement me.
     return np.zeros_like(x)
 
