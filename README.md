@@ -89,7 +89,7 @@ $$\hat{\mu}_g = \frac{1}{n_g} \sum_{i=1}^n \hat{z}_{ig} \mathbf{x}_i.$$
 
 4. update 
 
-$$\hat{\Sigma}_g = \frac{1}{n_g} (\mathbf{x}_i - \hat{\mu}_g)(\mathbf{x}_i - \hat{\mu}_g)^T.$$
+$$\hat{\Sigma}_g = \frac{1}{n_g} \sum_{i=1}^n (\mathbf{x}_i - \hat{\mu}_g)(\mathbf{x}_i - \hat{\mu}_g)^T.$$
 
 Above $n_g$ denotes the number of points in class $g$. These four steps must be repeated until the solution is good enough.
 Implement `fit_gmm` using these four steps. `np.expand_dims` makes it possible to process
