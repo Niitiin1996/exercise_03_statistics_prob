@@ -77,7 +77,7 @@ tells us the probability with which point $x_i$ came from gaussian $g$. The equa
 The `np.argmax` function gets you an association between the data points and the Gaussians.
 Use its output to select the points which belong to each class.
 
-Optimizing the gaussian parameters $\theta$, requires four steps per gaussian and iteration,
+Optimizing the gaussian parameters $\theta$ requires four steps per gaussian and iteration,
 
 1. update 
 

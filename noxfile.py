@@ -51,3 +51,8 @@ def format(session):
     session.install("isort")
     session.run("isort", "src", "tests", "noxfile.py")
     session.run("black", "src", "tests", "noxfile.py")
+
+@nox.session(name="rendermd")
+def rendermd(session):
+    session.install("pypandoc_binary")
+    session.run("pandoc", "-o", "README.pdf", "README.md", external=True)
