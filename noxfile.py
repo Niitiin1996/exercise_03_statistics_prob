@@ -9,20 +9,10 @@ def run_test(session):
     session.install("pytest")
     session.run("pytest")
 
-
 @nox.session(name="lint")
 def lint(session):
     """Check code conventions."""
-    session.install("flake8==4.0.1")
-    session.install(
-        "flake8-black",
-        "flake8-docstrings",
-        "flake8-bugbear",
-        "flake8-broken-line",
-        "pep8-naming",
-        "pydocstyle",
-        "darglint",
-    )
+    session.install("flake8")
     session.run("flake8", "src", "tests", "noxfile.py")
 
 
