@@ -71,13 +71,13 @@ With the normal distribution $\phi$ defined as before. $\rho_g$ denotes the glob
 
 After guessing an initial choice for all $\hat{\mu}_g$ and $\hat{\Sigma}_g$,
 
-$$ \hat{z}_{ig} = \frac{\rho_g \phi(\mathbf{x_i}| \hat{\mu}_g, \hat{\Sigma}_g)}{\sum_{h=1}^G \rho_h \phi(\mathbf{x_i}| \hat{\mu}_h, \hat{\Sigma}_h) }  $$
+$$\hat{z}_{ig} = \frac{\rho_g \phi(\mathbf{x_i}| \hat{\mu}_g, \hat{\Sigma}_g)}{\sum_{h=1}^G \rho_h \phi(\mathbf{x_i}| \hat{\mu}_h, \hat{\Sigma}_h)}$$
 
 tells us the probability with which point $x_i$ came from gaussian $g$. The equation above allows you to implement the function `get_classification` in `src/mixture_concepts.py`.
 The `np.argmax` function gets you an association between the data points and the Gaussians.
 Use its output to select the points which belong to each class.
 
-Optimizing the gaussian parameters $\theta$ requires four steps per gaussian and iteration,
+Optimizing the Gaussian parameters $\theta$ requires four steps per Gaussian and iteration,
 
 1. update 
 
