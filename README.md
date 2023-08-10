@@ -71,7 +71,9 @@ With the normal distribution $\phi$ defined as before. $\rho_g$ denotes the glob
 
 After guessing an initial choice for all $\hat{\mu}_g$ and $\hat{\Sigma}_g$,
 
-$$\hat{z}_{ig} = \frac{\rho_g \phi(\mathbf{x_i}| \hat{\mu}_g, \hat{\Sigma}_g)}{\sum_{h=1}^G \rho_h \phi(\mathbf{x_i}| \hat{\mu}_h, \hat{\Sigma}_h)}$$
+```math
+\hat{z}_{ig} = \frac{\rho_g \phi(\mathbf{x_i}| \hat{\mu}_g, \hat{\Sigma}_g)}{\sum\limits^{G}_{h=1} \rho_h \phi(\mathbf{x_i}| \hat{\mu}_h, \hat{\Sigma}_h)}
+```
 
 tells us the probability with which point $x_i$ came from gaussian $g$. The equation above allows you to implement the function `get_classification` in `src/mixture_concepts.py`.
 The `np.argmax` function gets you an association between the data points and the Gaussians.
@@ -87,13 +89,17 @@ $$\hat{z}_{ig}.$$
 
 $$\hat{\rho}_g = n_g/n.$$
 
-3. update 
+3. update
 
-$$\hat{\mu}_g = \frac{1}{n_g} \sum_{i=1}^n \hat{z}_{ig} \mathbf{x}_i.$$
+```math
+\hat{\mu}_g = \frac{1}{n_g} \sum_{i=1}^n \hat{z}_{ig} \mathbf{x}_i
+```
 
 4. update 
 
-$$\hat{\Sigma}_g = \frac{1}{n_g} \sum_{i=1}^n (\mathbf{x}_i - \hat{\mu}_g)(\mathbf{x}_i - \hat{\mu}_g)^T.$$
+```math
+\hat{\Sigma}_g = \frac{1}{n_g} \sum_{i=1}^n (\mathbf{x}_i - \hat{\mu}_g)(\mathbf{x}_i - \hat{\mu}_g)^T.
+```
 
 Above $n_g$ denotes the number of points in class $g$. These four steps must be repeated until the solution is good enough.
 Implement `fit_gmm` using these four steps. `np.expand_dims` makes it possible to process
