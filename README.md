@@ -14,7 +14,7 @@ $$ \hat{\mu} = \frac{1}{n} \sum_{i=1}^n x_i , $$
 
 to calculate the mean and 
 
-$$ \hat{\sigma} = \sqrt{\frac{1}{n-1} \sum_{i=1}^n (x_i - \bar{x})^2} $$
+$$ \hat{\sigma} = \sqrt{\frac{1}{n-1} \sum_{i=1}^n (x_i - \hat{\mu})^2} $$
 
 to compute the standard deviation. $x \in \mathbb{R}$ denotes individual sample elements, and $n \in \mathbb{N}$ the size of the sample.
 
