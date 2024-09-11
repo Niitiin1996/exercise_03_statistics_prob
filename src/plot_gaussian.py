@@ -2,7 +2,7 @@
 
 from functools import partial
 from typing import Callable
-
+from math import sqrt
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -19,7 +19,10 @@ def gaussian_pdf(x: np.ndarray, mu=0.0, sigma=1.0) -> np.ndarray:
         np.ndarray: The gaussian pdf with shape [points].
     """
     # TODO: Implement me.
-    return np.zeros_like(x)
+    phi1=np.ndarray(shape=(x.shape))
+    for i in range(x.shape[0]):
+        phi1[i]= 1/sqrt(2*np.pi*sigma**2)*np.exp(-1/2*((x[i]-mu)/sigma)**2)
+    return phi1
 
 
 def forward_euler(x: np.ndarray, fun: Callable, int_0: float = 0.0) -> np.ndarray:
